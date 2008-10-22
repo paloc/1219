@@ -4,7 +4,7 @@
 		
 		<legend>Minute Information</legend>
 		
-		<p>Filetypes accepted include: .doc, .txt, .jpg, .gif, .mp3, .mp4</p>
+		<p>Filetypes accepted include: <%= acceptable_filetypes %></p>
 		
 		<%= form.label :minute, 'Upload Your Minute' %>
 		<%= form.file_field :minute %><br/>
