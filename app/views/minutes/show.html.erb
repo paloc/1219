@@ -2,8 +2,32 @@
 	<%= link_to 'BACK', minutes_path %>
 </p>
 
-<%= link_to "View/Download #{@minute.minute.original_filename}", 
-	@minute.minute.url %>
+<h2><%= @minute.name %></h2>
+
+<p>
+	<strong>Contributor:</strong> 
+	<%= @minute.contributor_email %>
+</p>
+
+<p>
+	<strong>Description:</strong> 
+	<%= @minute.description %>
+</p>
+
+<p>
+	<strong>Tags:</strong> 
+	<%= @minute.tag_list %>
+</p>
+
+<p>
+	<strong>Created:</strong> 
+	<%= @minute.created_at %>
+</p>
+
+<p>
+	<%= link_to "View/Download #{@minute.minute.original_filename}", 
+		@minute.minute.url %> (<%= @minute.minute_file_size / 1.kilobyte %>K)
+</p>
 
 <% form_for :minute, @minute, minute_path(@minute), 
 	:html => {:method => :put} do |form| %>
