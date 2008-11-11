@@ -6,7 +6,7 @@ form {  /* set width in form, not fieldset (still takes up more room w/ fieldset
   min-width: 400px;
   max-width: 550px;
   width: 550px; 
-	float: left;
+	/*float: left;*/
 	/*border: 1px solid black;*/
 }
 

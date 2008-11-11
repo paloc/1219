@@ -1,6 +1,14 @@
-<p><%= link_to 'Contribute an Minute', new_minute_path %></p>
+<h1>1219 Administration</h1>
+
+<p>
+	<%= link_to 'Categories', categories_url %>
+</p>
+
 <ul>
-<%- @minutes.each do |minute| %>
-	<li><%= link_to minute.name, minute_url(minute) %></li>
-<%- end -%>
+	<% @minutes.each do |minute| -%>
+	<li>
+		<%= link_to minute.name, minute_path(minute) %> 
+		(<%= minute.categories.map{|c| c.name}.join(', ') %>)
+	</li>
+	<% end -%>
 </ul>

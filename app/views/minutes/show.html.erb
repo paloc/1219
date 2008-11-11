@@ -1,3 +1,16 @@
-<p><%= link_to 'Back', minutes_url %></p>
+<p>
+	<%= link_to 'BACK', minutes_path %>
+</p>
 
-<%= link_to @minute.minute.original_filename, @minute.minute.url %>
+<%= link_to "View/Download #{@minute.minute.original_filename}", 
+	@minute.minute.url %>
+
+<% form_for :minute, @minute, minute_path(@minute), 
+	:html => {:method => :put} do |form| %>
+	<select name='minute[categories][]' multiple='multiple'>
+		<% Category.all.each do |c| %>
+		<option value='<%= c.id %>' <%= "selected" if @minute.categories.include? c %>><%= c.name %></option>
+		<% end -%>
+	</select>
+	<%= submit_tag 'Set Categories' %>
+<% end -%>

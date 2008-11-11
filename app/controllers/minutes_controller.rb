@@ -25,4 +25,10 @@ class MinutesController < ApplicationController
     @minute = Minute.find(params[:id])
   end
   
+  def update
+    @minute = Minute.find(params[:id])
+    categories = Category.find(params[:minute][:categories])
+    @minute.categories = categories
+    redirect_to minute_path(@minute)
+  end
 end

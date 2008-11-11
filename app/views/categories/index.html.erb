@@ -1,7 +1,24 @@
 <h1>Categories</h1>
 
-<ul>
-	<% @categories.each do |category| -%>
-		<li><%= category.name %></li>
+<div id='new_category_form'>
+	<% form_for :category, Category.new do |form| %>
+	<fieldset>
+		<legend>New Category</legend>
+	<%= form.label :name %>
+	<%= form.text_field :name %>
+	<p align='right'><%= submit_tag 'Create New Category' %></p>
+	</fieldset>
 	<% end %>
-</ul>
+</div>
+
+<div id='category_list'>
+	<ul>
+		<% @categories.each do |category| %>
+			<li>
+				<%= link_to 'x', category_url(category), 
+					:method => :delete, :confirm => 'Are you sure?' %>
+				<%= category.name %>
+			</li>
+		<% end -%>
+	</ul>
+</div>
