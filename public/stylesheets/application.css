@@ -87,9 +87,9 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+a { color: #FF0000; }
+a:visited { color: #880088; }
+a:hover { color: #0099FF; }
 
 .fieldWithErrors {
   padding: 2px;
