@@ -1,7 +1,7 @@
 <h1>Thank you for contributing to 1219!</h1>
 
-<% if @minute.contributor_name %>
-<p>Dear <%= @minute.contributor_name %>,
+<% unless @minute.contributor_name.nil? %>
+<p>Dear <%= @minute.contributor_name %>,</p>
 <% end %>
 
 <p>

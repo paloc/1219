@@ -66,3 +66,5 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
 end
+
+ACCEPTABLE_FILETYPES = %w(.doc .txt .jpg .jpeg .gif .mp3 .mp4 .qt .mov)
