@@ -4,10 +4,48 @@
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 	<title>12:19</title>
 	<%= javascript_include_tag :defaults %>
-	<%= stylesheet_link_tag 'application'%>
-	
+	<%= stylesheet_link_tag 'blueprint/screen' %>
+	<%= stylesheet_link_tag 'base' %>
+	<script type="text/javascript" src="/javascripts/base.js"></script>
+	<script type="text/javascript" src="/flowplayer/example/flowplayer-3.0.0-rc5.min.js"></script> 
 </head>
-<body id="application.html" onload="">
-	<div id='notice'><%= flash[:notice] %></div>
-	<%= @content_for_layout %>
+<body onload="doOnload()">
+<div class="container" style="background-color:#fff;">
+<div class="span-20 header last"><a href="index.html"><img src="/images/header.png" border=0 height=72/></a></div>
+<div class="span-20 topnav last">
+	<div class="topnavbt" onclick="location.href='/updates.html';" onmouseover="changeColor(this, '#8BAABE');" onmouseout="changeColor(this, '#fff');">Get Updates</div>
+	<div class="topnavbt" onclick="location.href='/library.html';" onmouseover="changeColor(this, '#8BAABE');" onmouseout="changeColor(this, '#fff');">Staff Pics</div>
+	<div class="topnavbt" onclick="location.href='/faq.html';" onmouseover="changeColor(this, '#8BAABE');" onmouseout="changeColor(this, '#fff');">FAQ about 12:19</div>
+	<div class="topnavbt" onclick="location.href='/about.html';" onmouseover="changeColor(this, '#8BAABE');" onmouseout="changeColor(this, '#fff');">About Us</div>
+</div>
+<div class="container">
+	<div style="float:left;width:462px;">
+		<div class="contentLeft">
+			<h2>[ CONTRIBUTE A MINUTE ]</h2>
+			<P>&nbsp;</P>
+			<div id='notice'><%= flash[:notice] %></div>
+			<%= @content_for_layout %>
+				</div>
+			</div>
+			<div style="float:left;width:330px;">
+				<div class="contentRight">
+					<div id="example1" class="exampleContainer" onclick="changeExample(this)">
+						<div id="display1"></div>
+						<a id="player1" class="player"></a>			
+					</div>
+					<div id="example2" class="exampleContainer" onclick="changeExample(this)">
+						<div id="display2"></div>
+						<a id="player2" class="player"></a>					
+					</div>
+					<div id="example3" class="exampleContainer" onclick="changeExample(this)">
+						<div id="display3" class="contributeAMinute" onclick="location.href='contribute.html';">[ CONTRIBUTE A MINUTE ]</div>
+						<a id="player3" class="player"></a>		
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="span-20 footer"><img src="/images/footer.png"></div>
+		</div>
+		</body>
+		</html>
 </body>

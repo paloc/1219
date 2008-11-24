@@ -1,0 +1,16 @@
+.header {height:72px;}
+.footer {height:46px;background-color:#FF5D00;}
+.topnav {background-color:#000640;}
+.topnavbt {cursor:pointer;float:right;color:#fff;padding:3px 10px 3px 10px;font-weight:bold;font-size:11px;}
+
+.contentLeft {padding:10px 30px 10px 36px;}
+.contentRight {float:left;padding:0px 0px 0px 0px;margin-top:0px;}
+
+h2 {color:#35A6E8;font-size:20px;font-weight:bold;font-family:verdana;}
+p {font-family:verdana;font-size:11px;margin-bottom:12px;letter-spacing:-.6px;line-height:12px;}
+.faQ {color:#35A6E8;}
+.label {padding-bottom:2px;}
+.exampleContainer {text-align:center;border:1px solid gray;margin:0px;padding:0px;width:328px;height:170px;background-repeat: no-repeat;background-image:url(/images/examples/2.jpg);}
+.contributeAMinute {padding:10px;cursor:pointer;color:#fff;font-size:20px;font-weight:bold;background-image:url(/images/opacity.png);}
+
+.player { display:none;width:328px;height:170px }

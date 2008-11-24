@@ -1,3 +1,6 @@
+<style type='text/css'>
+	.label { display: block; }
+</style>
 <% form_for @minute, :html => {:multipart => true} do |form| %>
 	<%= form.error_messages %>
 	<fieldset title='Minute Information'>
@@ -6,19 +9,19 @@
 		
 		<p>Filetypes accepted include: <%= acceptable_filetypes %></p>
 		
-		<%= form.label :minute, 'Upload Your Minute' %>
+		<%= form.label :minute, 'Upload Your Minute', {:class => 'label'} %>
 		<%= form.file_field :minute %><br/>
 		
-		<%= form.label :name, 'Name Your Minute' %>
+		<%= form.label :name, 'Name Your Minute', {:class => 'label'} %>
 		<%= form.text_field :name %><br/>
 		
-		<%= form.label :location %>
+		<%= form.label :location, nil, {:class => 'label' } %>
 		<%= form.text_field :location %>
 		
-		<%= form.label :description %>
+		<%= form.label :description, nil, {:class => 'label' } %>
 		<%= form.text_area :description, :cols => 26, :rows => 3 %><br/>
 		
-		<%= form.label :tag_list, 'Tags (comma-separated)' %>
+		<%= form.label :tag_list, 'Tags (comma-separated)', {:class => 'label'} %>
 		<%= form.text_field :tag_list %><br/>
 				
 	</fieldset>
@@ -27,10 +30,10 @@
 	
 		<legend>Contributor Information</legend>
 		
-		<%= form.label :contributor_name %>
+		<%= form.label :contributor_name, nil, {:class => 'label'} %>
 		<%= form.text_field :contributor_name %><br/>
 	
-		<%= form.label :contributor_email %>
+		<%= form.label :contributor_email, nil, {:class => 'label'} %>
 		<%= form.text_field :contributor_email %><br/>
 
 		<p align='right'><%= submit_tag 'Contribute!' %></p>
