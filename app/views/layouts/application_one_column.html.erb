@@ -9,29 +9,13 @@
 	<script type="text/javascript" src="/javascripts/base.js"></script>
 	<script type="text/javascript" src="/flowplayer/example/flowplayer-3.0.0-rc5.min.js"></script> 
 </head>
-<body onload="doOnload()">
+<body>
 <div class="container" style="background-color:#fff;">
 <%= render :partial => "layouts/header"%>
 <div class="container">
-	<div style="float:left;width:462px;">
+	<div style="float:left;width:792px;">
 		<div class="contentLeft">
 			<%= @content_for_layout %>
-		</div>
-	</div>
-	<div style="float:left;width:330px;">
-		<div class="contentRight">
-			<div id="example1" class="exampleContainer" onclick="changeExample(this)">
-				<div id="display1"></div>
-				<a id="player1" class="player"></a>			
-			</div>
-			<div id="example2" class="exampleContainer" onclick="changeExample(this)">
-				<div id="display2"></div>
-				<a id="player2" class="player"></a>					
-			</div>
-			<div id="example3" class="exampleContainer" onclick="changeExample(this)">
-				<div id="display3" class="contributeAMinute" onclick="location.href='/minutes/new';">[ CONTRIBUTE A MINUTE ]</div>
-				<a id="player3" class="player"></a>		
-			</div>
 		</div>
 	</div>
 </div>

@@ -16,7 +16,7 @@ class MinutesController < ApplicationController
       Mailer.deliver_thankyou_mail(@minute)
       redirect_to '/thanks'
     else
-      flash[:notice] = "Something went wrong!"
+      flash[:notice] = "We were not able to process your submission!"
       render :action => 'new'
     end
   end
@@ -31,4 +31,5 @@ class MinutesController < ApplicationController
     @minute.categories = categories
     redirect_to minute_path(@minute)
   end
+  
 end

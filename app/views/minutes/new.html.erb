@@ -1,42 +1,40 @@
-<style type='text/css'>
-	.label { display: block; }
-</style>
+<h2>Contribute a minute</h2>
+
 <% form_for @minute, :html => {:multipart => true} do |form| %>
-	<%= form.error_messages %>
+	<%= form.error_messages :header_message => "", :message => ""%> 
 	<fieldset title='Minute Information'>
 		
-		<legend>Minute Information</legend>
-		
-		<p>Filetypes accepted include: <%= acceptable_filetypes %></p>
-		
 		<%= form.label :minute, 'Upload Your Minute', {:class => 'label'} %>
-		<%= form.file_field :minute %><br/>
+		<%= form.file_field :minute, {:class => 'contributeFile'} %><br/><p><%= acceptable_filetypes %></p>
 		
-		<%= form.label :name, 'Name Your Minute', {:class => 'label'} %>
-		<%= form.text_field :name %><br/>
-		
-		<%= form.label :location, nil, {:class => 'label' } %>
-		<%= form.text_field :location %>
-		
-		<%= form.label :description, nil, {:class => 'label' } %>
-		<%= form.text_area :description, :cols => 26, :rows => 3 %><br/>
+		<div style="float:left">
+			<%= form.label :name, 'Name Your Minute', {:class => 'label'} %>
+			<%= form.text_field :name, {:class => 'contributeText2 text'} %><br/>
+		</div>
+		<div style="float:left">	
+			<%= form.label :location, nil, {:class => 'label' } %>
+			<%= form.text_field :location, {:class => 'contributeText2 text'} %>
+		</div>
+	
+		<%= form.label :description, nil, {:class => 'label'} %>
+		<%= form.text_area :description, {:class => 'contributeText1 text'} %><br/>
 		
 		<%= form.label :tag_list, 'Tags (comma-separated)', {:class => 'label'} %>
-		<%= form.text_field :tag_list %><br/>
+		<%= form.text_field :tag_list, {:class => 'contributeText1 text '} %><br/>
 				
 	</fieldset>
 
-	<fieldset  title='Contributor Information'>
-	
-		<legend>Contributor Information</legend>
+	<fieldset title='Contributor Information'>
 		
+	<div style="float:left">
 		<%= form.label :contributor_name, nil, {:class => 'label'} %>
-		<%= form.text_field :contributor_name %><br/>
-	
+		<%= form.text_field :contributor_name, {:class => 'contributeText2 text'} %><br/>
+	</div>
+	<div style="float:left">
 		<%= form.label :contributor_email, nil, {:class => 'label'} %>
-		<%= form.text_field :contributor_email %><br/>
-
-		<p align='right'><%= submit_tag 'Contribute!' %></p>
+		<%= form.text_field :contributor_email, {:class => 'contributeText2 text'} %><br/>
+	</div>
+		<%= submit_tag 'Contribute!', {:class => 'button'} %>
 
 	</fieldset>
 		

@@ -67,4 +67,22 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
 end
 
-ACCEPTABLE_FILETYPES = %w(.doc .txt .jpg .jpeg .gif .mp3 .mp4 .qt .mov)
+ACCEPTABLE_FILETYPES = %w(.doc .txt .jpg .jpeg .gif .png .mp3 .mp4 .qt .mov)
+
+# Inserts class="error" for all form fields that fail validation, this replaces the default
+# behavior of wrapping fields in div tags
+ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+  msg = instance.error_message
+  error_class = "error"
+  if html_tag =~ /<(input|textarea|select|label)[^>]+class=/
+    class_indx = html_tag =~ /class=['"]/
+    html_tag.insert(class_indx + 7, "#{error_class} ")
+  elsif html_tag =~ /<(input|textarea|select|label)/
+    first_whitespace = html_tag =~ /\s/
+    html_tag[first_whitespace] = " class='#{error_class}' "
+  end
+  html_tag
+end
+
+
+
