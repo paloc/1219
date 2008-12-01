@@ -56,15 +56,6 @@ function updateTimer() {
 		if (playerStatus[1] != 'playing' && playerStatus[2] != 'playing' && playerStatus[3] != 'playing') {
 			startPlayer(0);
 		}
-		/*if (playerStatus[1] != 'playing' && playerStatus[2] != 'playing') {
-			if (lastPlayer == 0) {
-				startPlayer(1);
-			} else if (lastPlayer == 1) {
-				startPlayer(2);
-			} else if (lastPlayer == 2) {
-				startPlayer(1);
-			}
-		}*/
 	}
 	
    	setTimeout("updateTimer()", 45);
@@ -72,7 +63,7 @@ function updateTimer() {
 
 
 function doOnload() {
-	//startPlayer(1);
+	startPlayer(1);
 	startExamples();	
 	updateTimer();
 }
@@ -83,33 +74,19 @@ function startPlayer(n) {
 	if (lastVideo == '3.flv') lastVideo = '3.flv'; else lastVideo = '3.flv';
 	var player = 'player' + n;
 	document.getElementById(player).style.display = 'block';
-	flowplayer(player, "/flowplayer/flowplayer-3.0.0-rc4.swf", {
+	flowplayer(player, "/flowplayer/flowplayer.swf", {
 		clip: {
 			url: '/video/' + lastVideo,
 			autoPlay: true,
 			onLastSecond: function(clip) {
 				hidePlayer(n);
-			}/*,
-    		onCuepoint: [10, function() { 
-         		hidePlayer(n);
-    		}]	*/		
+			}	
 		},
 		logo: { 
 		    fullscreenOnly: true
 		},
 		plugins: {
 			controls: null
-			/*controls: {
-				url: 'flowplayer/flowplayer.controls-3.0.0-beta7.swf',
-				autoHide: 'always',
-				scrubber: false,
-				time: true,
-				mute: false,
-				play: false,
-				volume: false,
-				fullscreen: true,
-				opacity: .4
-			}*/
 		}
 	});
 	document.getElementById("display" + n).style.display = 'none';
