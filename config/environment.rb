@@ -67,7 +67,7 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
 end
 
-ACCEPTABLE_FILETYPES = %w(.doc .txt .jpg .jpeg .gif .png .mp3 .mp4 .qt .mov)
+ACCEPTABLE_FILETYPES = %w(.doc .txt .jpg .jpeg .gif .png .mp3 .mp4 .qt .mov .flv)
 
 # Inserts class="error" for all form fields that fail validation, this replaces the default
 # behavior of wrapping fields in div tags

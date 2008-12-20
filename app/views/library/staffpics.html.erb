@@ -1,10 +1,19 @@
 <h2>Staff Pics</h2>
 
-<ul>
-	<% @minutes.each do |minute| -%>
-	<li>
-		<%= link_to minute.name, minute_path(minute) %> 
-		(<%= minute.categories.map{|c| c.name}.join(', ') %>)
-	</li>
-	<% end -%>
-</ul>
+<%= @minute.name %> &#151; <%= @minute.created_at.strftime("%m/%d/%Y %H:%M")  %>
+<hr>
+
+<div style="height:200px">
+	<div style="float:left;width:300px">
+		<%= image_tag("/minutes/#{@minute.id}/thumbnail/#{@minute.minute_file_name}")%>
+	</div>
+	<div style="">
+		<%= @minute.description if !@minute.description.blank?%>
+	</div>
+</div>
+<hr>
+<%= @minute.minute_content_type %>
+<hr>
+<%=link_to(text="Next >", :id => @nextPicIndex)%>
+
+

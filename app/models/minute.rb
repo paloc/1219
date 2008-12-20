@@ -18,7 +18,6 @@ class Minute < ActiveRecord::Base
     else
       errors.add('minute', ' can\'t be blank.')
     end
-    
   end
   
 end

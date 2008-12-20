@@ -3,7 +3,7 @@
 .topnav {background-color:#000640;}
 .topnavbt {cursor:pointer;float:right;color:#fff;padding:3px 10px 3px 10px;font-weight:bold;font-size:11px;}
 
-.contentLeft {padding:10px 30px 10px 36px;}
+.contentLeft {min-height:496px;padding:10px 30px 10px 36px;}
 .contentRight {float:left;padding:0px 0px 0px 0px;margin-top:0px;}
 
 h2 {color:#35A6E8;font-size:20px;font-weight:bold;font-family:verdana;}

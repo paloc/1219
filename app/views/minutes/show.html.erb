@@ -35,6 +35,8 @@
 		<% Category.all.each do |c| %>
 		<option value='<%= c.id %>' <%= "selected" if @minute.categories.include? c %>><%= c.name %></option>
 		<% end -%>
+		<option value='0'>Clear
 	</select>
 	<%= submit_tag 'Set Categories' %>
 <% end -%>
+
