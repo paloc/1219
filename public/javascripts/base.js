@@ -101,9 +101,31 @@ function hidePlayer(n) {
 	playerStatus[n] = 'hidden';
 }
 
+function clearSelectMenu(elem, indx) {
+	for (i=0; i<indx; i++) {
+		if (elem[i]) elem[i].selected = false;
+	}
+}
 
-
-
+function play(src) {
+	var player = 'player';
+	document.getElementById(player).style.display = 'block';
+	flowplayer(player, "/flowplayer/flowplayer.swf", {
+		clip: {
+			url: src,
+			autoPlay: true,
+			onLastSecond: function(clip) {
+				hidePlayer(n);
+			}	
+		},
+		logo: { 
+		    fullscreenOnly: true
+		},
+		plugins: {
+			controls: null
+		}
+	});
+}
 
 
 

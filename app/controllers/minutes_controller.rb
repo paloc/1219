@@ -35,7 +35,7 @@ class MinutesController < ApplicationController
       categories = []
 	end
 	@minute.categories = categories
-    redirect_to minute_path(@minute)
+    redirect_to '/minutes'
   end
   
 end

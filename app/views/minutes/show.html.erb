@@ -30,13 +30,13 @@
 </p>
 
 <% form_for :minute, @minute, minute_path(@minute), 
-	:html => {:method => :put} do |form| %>
-	<select name='minute[categories][]' multiple='multiple'>
+	:html => {:method => :put, :name => 'minute_form', :id => 'minute_form'} do |form| %>
+	<select name='minute[categories][]' id='categories' multiple='multiple'>
 		<% Category.all.each do |c| %>
 		<option value='<%= c.id %>' <%= "selected" if @minute.categories.include? c %>><%= c.name %></option>
 		<% end -%>
-		<option value='0'>Clear
-	</select>
+	</select><br/>
 	<%= submit_tag 'Set Categories' %>
+	<input type="button" value="Clear" onclick="clearSelectMenu($('categories'), <%=Category.all.length%>); $('minute_form').submit()"/>
 <% end -%>
 

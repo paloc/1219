@@ -1,6 +1,6 @@
 class Minute < ActiveRecord::Base
   acts_as_taggable
-  has_attached_file :minute, :styles => { :thumbnail => '200x200>' }
+  has_attached_file :minute, :styles => { :thumbnail => '240x200>' }
   validates_presence_of :contributor_email, :name
   
   has_many :categorizations
