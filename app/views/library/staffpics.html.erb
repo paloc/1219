@@ -2,13 +2,17 @@
 <%if @picsRange.last > 0%>
 <h4><strong><%= @minute.name %></strong> &nbsp; / &nbsp; <%= @minute.contributor_name%> &nbsp; / &nbsp; <%= @minute.location%></h4>
 
-<div style="height:300px">
+<div style="height:280px">
 	<div style="float:left;width:340px;height:200px;">
 		<%if @minute.minute.original_filename.include?('.flv')%>
 			<a id="player" class="player" style="width:240px;height:180px;"></a>
 			<script>play('<%=@minute.minute.url%>');</script>
 		<%elsif @minute.minute_content_type.include?('image')%>	
 			<%= image_tag("/minutes/#{@minute.id}/thumbnail/#{@minute.minute_file_name}")%>
+		<%else%>
+			<div style="width:240px;height:180px;background-color:#e3e3e3;color:#999;font-size:18px;">
+				<div style="padding-top:80px;text-align:center;font-weight:bold;"><%= link_to "view", @minute.minute.url %></div>
+			</div>
 		<%end%>
 	</div>
 	<div style="">

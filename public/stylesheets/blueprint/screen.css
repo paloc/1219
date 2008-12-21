@@ -256,6 +256,8 @@ label.error {color:#FF5D00;}
 .errorExplanation {color:#FF5D00;margin:0px;padding:0px;}
 .sh {font-weight:bold;background-color:#eee;padding:4px 6px 4px 6px;}
 
+ a {color:#505050;text-decoration:underline;}
+
 div .selector {text-align:left;}
 div .selector .s {font-size:12px;background-color:#e3e3e3;padding:4px 8px 4px 8px;}
 div .selector .n {font-size:12px;background-color:#fff;padding:4px 8px 4px 8px;border-bottom:1px solid #EBEBEB;border-top:1px solid #e3e3e3;font-weight:normal;}
