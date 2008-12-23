@@ -12,7 +12,7 @@ class LibraryController <  ApplicationController
     @minute 		= @minutes[@currPicIndx-1]
     @nextPicIndx 	= (@currPicIndx == @picsRange.last ? @picsRange.first : @currPicIndx+1 )
     @prevPicIndx 	= (@currPicIndx == @picsRange.first ? @picsRange.last : @currPicIndx-1 )
-	
+	@file			= @minute.minute.original_filename
     render :layout => 'application_one_column'
   end
 	

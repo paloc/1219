@@ -127,5 +127,10 @@ function play(src) {
 	});
 }
 
-
+function playQuickTime(src) {
+document.write('<object classid="clsid: 02BF25D5..." ...>\n');
+document.write('<param name="src" value="' + src + '" />\n');
+document.write('</object>\n');
+alert(src);
+}
 

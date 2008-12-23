@@ -3,23 +3,33 @@
 <h4><strong><%= @minute.name %></strong> &nbsp; / &nbsp; <%= @minute.contributor_name%> &nbsp; / &nbsp; <%= @minute.location%></h4>
 
 <div style="height:280px">
-	<div style="float:left;width:340px;height:200px;">
-		<%if @minute.minute.original_filename.include?('.flv')%>
-			<a id="player" class="player" style="width:240px;height:180px;"></a>
-			<script>play('<%=@minute.minute.url%>');</script>
+<div style="height:240px;background-color:#e3e3e3;">
+	<div style="float:left;width:340px;height:240px;">
+		<div style="width:320px;height:240px;background-color:#BBBFCA;color:#999;font-size:18px;">
+		<%if @file.include?('.flv')%>
+		  <a id="player" class="player" style="width:320px;height:240px;"></a>
+		  <script>play('<%=@minute.minute.url%>');</script>
+		<%elsif @file.include?('.mov') || @file.include?('.mp4') || @file.include?('.mp3') || @file.include?('.qt')%>
+		  <script>QT_WriteOBJECT('<%=@minute.minute.url%>', '320', '240', '','autoplay', 'true', 'controller', 'true');</script>
+		<%elsif @minute.minute.original_filename.include?('.txt')%>
+		  <iframe src="<%=@minute.minute.url%>" width="320" height="240"></iframe>
 		<%elsif @minute.minute_content_type.include?('image')%>	
-			<%= image_tag("/minutes/#{@minute.id}/thumbnail/#{@minute.minute_file_name}")%>
+			<%= image_tag @minute.minute.url, :width => '320px'%>
 		<%else%>
-			<div style="width:240px;height:180px;background-color:#e3e3e3;color:#999;font-size:18px;">
-				<div style="padding-top:80px;text-align:center;font-weight:bold;"><%= link_to "view", @minute.minute.url %></div>
-			</div>
+			
+				<div style="padding-top:100px;text-align:center;font-weight:bold;"><%= link_to "view", @minute.minute.url %></div>
+			
 		<%end%>
+		</div>
 	</div>
-	<div style="">
+	<div style="padding:20px">
 		<%= @minute.description+'<br/><br/>' if !@minute.description.blank?%>
-		Submited on: <%= @minute.created_at.strftime("%m/%d/%Y %H:%M")  %><br/>
-		Download: <%= link_to "#{@minute.minute.original_filename}", @minute.minute.url %>
+		
+		<div style="float:left;width:100px"><strong>submitted on:</strong></div><div><%= @minute.created_at.strftime("%m/%d/%Y %H:%M")  %></div>
+		<div style="float:left;width:100px"><strong>download:</strong></div><div><%= link_to "#{@minute.minute.original_filename}", @minute.minute.url %> &nbsp; / &nbsp; <%=(@minute.minute_file_size.to_f / 1.megabyte).round(2)%>MB</div></br>
+
 	</div>
+</div>
 </div>
 
 <div class="selector">
